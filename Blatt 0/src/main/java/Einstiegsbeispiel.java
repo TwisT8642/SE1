@@ -25,11 +25,11 @@ public class Einstiegsbeispiel {
     }
 
     public void getInnerProduct () {
-        int c = a.length-1;
+        int fill = a.length-1;
         int skpro = 0;
-        if (c > 0) {
-            skpro += a[c] * b[c];
-            c--;
+            while (fill >= 0){
+            skpro = skpro + a[fill] * b[fill];
+            fill = fill - 1;
         }
         System.out.println(skpro);
     }
