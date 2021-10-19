@@ -29,7 +29,7 @@ public class Einstiegsbeispiel {
         int skpro = 0;
         if (c > 0) {
             skpro += a[c] * b[c];
-            c -= 1;
+            c--;
         }
         System.out.println(skpro);
         return skpro;
