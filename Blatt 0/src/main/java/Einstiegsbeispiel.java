@@ -24,7 +24,7 @@ public class Einstiegsbeispiel {
         this.b = b;
     }
 
-    public int getInnerProduct () {
+    public void getInnerProduct () {
         int c = a.length-1;
         int skpro = 0;
         if (c > 0) {
@@ -32,7 +32,5 @@ public class Einstiegsbeispiel {
             c--;
         }
         System.out.println(skpro);
-        return skpro;
     }
-
 }
