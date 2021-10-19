@@ -4,6 +4,12 @@ public class Einstiegsbeispiel {
     public int [] b;
 
     public Einstiegsbeispiel(int[] a, int[] b) {
+        if(a.length != b.length) {
+            throw new IllegalArgumentException("Arraylängen nicht gleich lang");
+        }
+        if(a.length == 0) { // da a und b immer gleich lang sein müssen, aufgrund der vorherigen Überprüfung, muss nur a überprüft werden.
+            throw new IllegalArgumentException("Arraylänge darf nicht 0 betragen");
+        }
         this.a = a;
         this.b = b;
     }
@@ -24,13 +30,13 @@ public class Einstiegsbeispiel {
         this.b = b;
     }
 
-    public void getInnerProduct () {
+    public int getInnerProduct () {
         int fill = a.length-1;
         int skpro = 0;
             while (fill >= 0){
-            skpro = skpro + a[fill] * b[fill];
+            skpro = skpro + (a[fill] * b[fill]);
             fill = fill - 1;
         }
-        System.out.println(skpro);
+            return skpro;
     }
 }
