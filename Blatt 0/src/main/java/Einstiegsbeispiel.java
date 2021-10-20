@@ -1,3 +1,4 @@
+//Andreas Marius Baisan 12008073
 public class Einstiegsbeispiel {
 
     public int [] a;
