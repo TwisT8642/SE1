@@ -15,14 +15,14 @@ public class RelationCheckerTest {
         Assert.assertEquals(34, RelationChecker.checkRelation(8, 17));
 
     }
-        @Test
-        public void ifXIsThreeAndYIsSeven_thenReturnEight(){
-            Assert.assertEquals(8, RelationChecker.checkRelation(3,7));
-        }
+    @Test
+    public void ifXIsThreeAndYIsSeven_thenReturnEight(){
+        Assert.assertEquals(8, RelationChecker.checkRelation(3,7));
+    }
 
-        @Test
-        public void ifXIsFifteenAndYIsTen_thenReturnTwentyfive(){
-            Assert.assertEquals(25, RelationChecker.checkRelation(15,10));
-        }
+    @Test
+    public void ifXIsFifteenAndYIsTen_thenReturnTwentyfive(){
+        Assert.assertEquals(25, RelationChecker.checkRelation(15,10));
+    }
 
 }
