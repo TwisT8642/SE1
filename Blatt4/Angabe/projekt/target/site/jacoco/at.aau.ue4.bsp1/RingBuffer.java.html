@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RingBuffer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">se14</a> &gt; <a href="index.source.html" class="el_package">at.aau.ue4.bsp1</a> &gt; <span class="el_source">RingBuffer.java</span></div><h1>RingBuffer.java</h1><pre class="source lang-java linenums">package at.aau.ue4.bsp1;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+/**
+ * Ring buffer (fixed size queue) implementation using a circular array (array
+ * with wrap-around).
+ */
+// suppress unchecked warnings in Java 1.5.0_6 and later
+@SuppressWarnings(&quot;unchecked&quot;)
+public class RingBuffer&lt;T&gt; implements Iterable&lt;T&gt; {
+    private T[] buffer;          // queue elements
+<span class="nc" id="L12">    private int count = 0;          // number of elements on queue</span>
+<span class="nc" id="L13">    private int indexOut = 0;       // index of first element of queue</span>
+<span class="nc" id="L14">    private int indexIn = 0;       // index of next available slot</span>
+    // cast needed since no generic array creation in Java
+<span class="nc" id="L16">    public RingBuffer(int capacity) {</span>
+<span class="nc" id="L17">        buffer = (T[]) new Object[capacity];</span>
+<span class="nc" id="L18">    }</span>
+    public boolean isEmpty() {
+<span class="nc bnc" id="L20" title="All 2 branches missed.">        return count == 0;</span>
+    }
+    public int size() {
+<span class="nc" id="L23">        return count;</span>
+    }
+    public void push(T item) {
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (count == buffer.length) {</span>
+<span class="nc" id="L27">            throw new RuntimeException(&quot;Ring buffer overflow&quot;);</span>
+        }
+<span class="nc" id="L29">        buffer[indexIn] = item;</span>
+<span class="nc" id="L30">        indexIn = (indexIn + 1) % buffer.length;     // wrap-around</span>
+<span class="nc" id="L31">        count++;</span>
+<span class="nc" id="L32">    }</span>
+    public T pop() {
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (isEmpty()) {</span>
+<span class="nc" id="L35">            throw new RuntimeException(&quot;Ring buffer underflow&quot;);</span>
+        }
+<span class="nc" id="L37">        T item = buffer[indexOut];</span>
+<span class="nc" id="L38">        buffer[indexOut] = null;                  // to help with garbage collection</span>
+<span class="nc" id="L39">        count--;</span>
+<span class="nc" id="L40">        indexOut = (indexOut + 1) % buffer.length; // wrap-around</span>
+<span class="nc" id="L41">        return item;</span>
+    }
+    public Iterator&lt;T&gt; iterator() {
+<span class="nc" id="L44">        return new RingBufferIterator();</span>
+    }
+    // an iterator, doesn't implement remove() since it's optional
+<span class="nc" id="L47">    private class RingBufferIterator implements Iterator&lt;T&gt; {</span>
+<span class="nc" id="L48">        private int i = 0;</span>
+        public boolean hasNext() {
+<span class="nc bnc" id="L50" title="All 2 branches missed.">            return i &lt; count;</span>
+        }
+        public void remove() {
+<span class="nc" id="L53">            throw new UnsupportedOperationException();</span>
+        }
+        public T next() {
+<span class="nc bnc" id="L56" title="All 2 branches missed.">            if (!hasNext()) {</span>
+<span class="nc" id="L57">                throw new NoSuchElementException();</span>
+            }
+<span class="nc" id="L59">            return buffer[i++];</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
