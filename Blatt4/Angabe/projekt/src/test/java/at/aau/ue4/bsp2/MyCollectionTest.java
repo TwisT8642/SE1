@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class MyCollectionTest
@@ -22,4 +23,35 @@ public class MyCollectionTest
     public void testSizeSimple() {
         assertEquals(3,c.size());
     }
+
+    @Test
+    public void test(){
+        assertEquals(3,c.size());
+        c.remove("3");
+        assertEquals(2,c.size());
+    }
+    @Test
+    public void test1(){
+        assertThrows(IllegalArgumentException.class, ()->c.remove("4"));
+    }
+
+    @Test
+    public void test2(){
+        assertEquals(3,c.size());
+        c.remove("1");
+        c.remove("2");
+        c.remove("3");
+        assertThrows(IllegalArgumentException.class, ()->c.remove("1"));
+    }
+
+    @Test
+    public void test3(){
+        assertEquals(3,c.size());
+        c.empty();
+        assertEquals(0,c.size());
+    }
+
+
+
+
 }
