@@ -1,3 +1,4 @@
+//12008073 Andreas Marius Baisan
 package at.aau.ue4.bsp3;
 
 import org.junit.jupiter.api.Test;
@@ -10,10 +11,10 @@ public class McCabeTest {
     }
     @Test
     public void ifZahl1Is39AndZahl2Is3_ThenReturn1(){
-        assertEquals(1, McCabe.ggt(39,3));
+        assertEquals(3, McCabe.ggt(39,3));
     }
     @Test
     public void ifZahl1Is15AndZahl2Is45_ThenReturn1(){
-        assertEquals(1, McCabe.ggt(15,45));
+        assertEquals(15, McCabe.ggt(15,45));
     }
 }

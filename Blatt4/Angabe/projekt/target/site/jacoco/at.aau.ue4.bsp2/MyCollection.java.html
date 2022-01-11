@@ -32,17 +32,17 @@ public class MyCollection {
      */
     public void remove(String s) throws IllegalArgumentException{
 <span class="nc bnc" id="L34" title="All 2 branches missed.">        if(cursor == 0){</span>
-<span class="nc" id="L35">            throw new IllegalArgumentException();</span>
+<span class="nc" id="L35">            throw new IllegalArgumentException(&quot;List is empty&quot;);</span>
         }
 <span class="nc" id="L37">        boolean f = false;</span>
 <span class="nc bnc" id="L38" title="All 2 branches missed.">        for(int i =0;i &lt; list.length; i++) {</span>
-<span class="nc bnc" id="L39" title="All 2 branches missed.">            if (list[i].equals(s)){</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">            if (list[i]==s){</span>
 <span class="nc" id="L40">                list[i]= null;</span>
 <span class="nc" id="L41">                cursor--;</span>
 <span class="nc" id="L42">                f = true;</span>
             }
 <span class="nc bnc" id="L44" title="All 2 branches missed.">        }if(!f){</span>
-<span class="nc" id="L45">            throw new IllegalArgumentException();</span>
+<span class="nc" id="L45">            throw new IllegalArgumentException(&quot;String not found 404&quot;);</span>
         }
 <span class="nc" id="L47">    }</span>
 
