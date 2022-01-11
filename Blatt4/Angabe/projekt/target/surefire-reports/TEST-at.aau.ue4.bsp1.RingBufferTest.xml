@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="16" failures="0" name="at.aau.ue4.bsp1.RingBufferTest" time="0.037" errors="0" skipped="0">
+<testsuite tests="16" failures="0" name="at.aau.ue4.bsp1.RingBufferTest" time="0.036" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2021.3.1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -64,19 +64,19 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="BaseTest" name="ifCountEqualsBufferLength_ThenThrowRuntimeException()" time="0.025"/>
-  <testcase classname="BaseTest" name="ifRingBufferContainsNothing_thenReturn0()" time="0.002"/>
+  <testcase classname="BaseTest" name="ifCountEqualsBufferLength_ThenThrowRuntimeException()" time="0.019"/>
+  <testcase classname="BaseTest" name="ifRingBufferContainsNothing_thenReturn0()" time="0.003"/>
   <testcase classname="BaseTest" name="ifRingBufferContainsFiveElements_thenReturn5()" time="0"/>
-  <testcase classname="BaseTest" name="ifItemIsPopped_ThenItShouldBeReturned()" time="0"/>
-  <testcase classname="BaseTest" name="ifIsEmpty_ReturnTrue()" time="0.001"/>
-  <testcase classname="BaseTest" name="ifNoItemIsThereToBePopped_ThenThrowRuntimeException()" time="0.001"/>
+  <testcase classname="BaseTest" name="ifItemIsPopped_ThenItShouldBeReturned()" time="0.001"/>
+  <testcase classname="BaseTest" name="ifIsEmpty_ReturnTrue()" time="0.002"/>
+  <testcase classname="BaseTest" name="ifNoItemIsThereToBePopped_ThenThrowRuntimeException()" time="0.002"/>
   <testcase classname="BaseTest" name="ifItemsArePushed_ThenReturnTheSizeCorrectly()" time="0.001"/>
-  <testcase classname="BaseTest" name="test()" time="0"/>
-  <testcase classname="BaseTest" name="test1()" time="0.001"/>
+  <testcase classname="BaseTest" name="test()" time="0.001"/>
+  <testcase classname="BaseTest" name="test1()" time="0.002"/>
   <testcase classname="BaseTest" name="test2()" time="0.001"/>
   <testcase classname="BaseTest" name="test3()" time="0.001"/>
   <testcase classname="BaseTest" name="test4()" time="0.003"/>
-  <testcase classname="BaseTest" name="ifNotEmpty_ReturnFalse()" time="0.001"/>
+  <testcase classname="BaseTest" name="ifNotEmpty_ReturnFalse()" time="0"/>
   <testcase classname="BaseTest" name="ifItemsArePopped_ThenSizeIsSmaller()" time="0"/>
   <testcase classname="FullCoverageTest" name="test()" time="0"/>
   <testcase classname="FullMutationScoreTest" name="test()" time="0"/>

@@ -31,14 +31,28 @@ public class MyCollection {
      * @param s String to remove
      */
     public void remove(String s) throws IllegalArgumentException{
-
+        if(cursor == 0){
+            throw new IllegalArgumentException("List is empty");
+        }
+        boolean f = false;
+        for(int i =0;i < list.length; i++) {
+            if (list[i]==s){
+                list[i]= null;
+                cursor--;
+                f = true;
+            }
+        }if(!f){
+            throw new IllegalArgumentException("String not found 404");
+        }
     }
 
     /**
      * Removes all items from the list and initializes a new list
      */
     public void empty() {
-
+        String[] list1 = new String[list.length];
+        cursor = 0;
+        list=list1;
     }
 
 }
