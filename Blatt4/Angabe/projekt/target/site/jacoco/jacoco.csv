@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-se14,at.aau.ue4.bsp1,RingBuffer,103,0,6,0,22,0,9,0,6,0
-se14,at.aau.ue4.bsp1,RingBuffer.RingBufferIterator,42,0,4,0,7,0,6,0,4,0
+se14,at.aau.ue4.bsp1,RingBuffer,0,103,0,6,0,22,0,9,0,6
+se14,at.aau.ue4.bsp1,RingBuffer.RingBufferIterator,0,42,0,4,0,7,0,6,0,4
 se14,at.aau.ue4.bsp2,MyCollection,30,0,0,0,10,0,5,0,5,0
 se14,at.aau.ue4.bsp3,McCabe,20,0,4,0,6,0,4,0,2,0

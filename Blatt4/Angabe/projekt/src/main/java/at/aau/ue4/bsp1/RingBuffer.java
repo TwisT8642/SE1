@@ -52,7 +52,7 @@ public class RingBuffer<T> implements Iterable<T> {
         public void remove() {
             throw new UnsupportedOperationException();
         }
-        public T next() {
+        public T next () {
             if (!hasNext()) {
                 throw new NoSuchElementException();
             }
