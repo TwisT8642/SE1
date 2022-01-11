@@ -85,34 +85,32 @@ public class BaseTest {
         Integer i = ringBuffer.pop();
         assertEquals(1, (int) i);
         assertEquals(0, ringBuffer.size());
-
-        //IteratorTest
     }
 
+    //IteratorTest
     @Test
-    public void test() {
+    public void ifiIsSmallerThencount_ThenReturnTrue() {
         ringBuffer.push(0);
         assertTrue(ringBufferIterator.hasNext());
     }
 
     @Test
-    public void test1() {
+    public void ifiIsTheSameAscount_ThenReturnFalse() {
         assertFalse(ringBufferIterator.hasNext());
     }
 
     @Test
-    public void test2() {
+    public void ifMethodremoveIsUsed_ThenThrowUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, () -> ringBufferIterator.remove());
-
     }
 
     @Test
-    public void test3() {
+    public void ifMethodnextIsUsedAndiIsNotSmallerThencount_ThenThrowNoSuchElementException() {
         assertThrows(NoSuchElementException.class, () -> ringBufferIterator.next());
     }
 
     @Test
-    public void test4() {
+    public void ifMethodnextIsUsed_ThenReturnTheElementOntheRightPosition() {
         ringBuffer.push(0);
         ringBuffer.push(5);
         ringBuffer.push(10);

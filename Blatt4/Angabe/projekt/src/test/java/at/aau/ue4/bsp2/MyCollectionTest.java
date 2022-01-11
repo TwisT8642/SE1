@@ -25,18 +25,18 @@ public class MyCollectionTest
     }
 
     @Test
-    public void test(){
+    public void ifOneElementIsRemoved_ThenTheListShouldContainLessElements(){
         assertEquals(3,c.size());
         c.remove("3");
         assertEquals(2,c.size());
     }
     @Test
-    public void test1(){
+    public void ifAElementIsRemovedWhichIsNotContained_ThenThrowIllegalArgumentException(){
         assertThrows(IllegalArgumentException.class, ()->c.remove("4"));
     }
 
     @Test
-    public void test2(){
+    public void ifListIsEmptyAndAObjectIsRemoved_ThenThrowIllegalArgumentException(){
         assertEquals(3,c.size());
         c.remove("1");
         c.remove("2");
@@ -45,7 +45,7 @@ public class MyCollectionTest
     }
 
     @Test
-    public void test3(){
+    public void ifListgetsEmptied_ThenListShouldBeEmpty(){
         assertEquals(3,c.size());
         c.empty();
         assertEquals(0,c.size());
