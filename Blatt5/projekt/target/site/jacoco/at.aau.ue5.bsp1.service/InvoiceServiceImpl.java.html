@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InvoiceServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">se15</a> &gt; <a href="index.source.html" class="el_package">at.aau.ue5.bsp1.service</a> &gt; <span class="el_source">InvoiceServiceImpl.java</span></div><h1>InvoiceServiceImpl.java</h1><pre class="source lang-java linenums">package at.aau.ue5.bsp1.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import at.aau.ue5.bsp1.dao.CustomerDao;
+import at.aau.ue5.bsp1.dao.InvoiceDao;
+import at.aau.ue5.bsp1.dao.ProductDao;
+import at.aau.ue5.bsp1.entity.Customer;
+import at.aau.ue5.bsp1.entity.Invoice;
+import at.aau.ue5.bsp1.entity.Product;
+import at.aau.ue5.bsp1.service.exception.InvoiceServiceException;
+
+<span class="nc" id="L14">public class InvoiceServiceImpl implements InvoiceService {</span>
+
+	private InvoiceDao invoiceDao;
+	private ProductDao productDao;
+	private CustomerDao customerDao;
+
+	public Invoice createInvoice(List&lt;Product&gt; items, Customer customer)
+			throws InvoiceServiceException {
+<span class="nc" id="L22">		checkCustomer(customer);</span>
+<span class="nc" id="L23">		checkProducts(items);</span>
+		
+<span class="nc" id="L25">		Invoice newInvoice = new Invoice();</span>
+<span class="nc" id="L26">		newInvoice.setCustomer(customer);</span>
+<span class="nc" id="L27">		newInvoice.setItems(items);</span>
+<span class="nc" id="L28">		newInvoice.setPaid(false);</span>
+		
+<span class="nc" id="L30">		newInvoice=invoiceDao.insert(newInvoice);</span>
+		
+<span class="nc" id="L32">		return newInvoice;</span>
+	}
+
+	public void deleteInvoice(Invoice invoice)
+			throws InvoiceServiceException {
+<span class="nc" id="L37">		checkInvoice(invoice);</span>
+<span class="nc" id="L38">		invoiceDao.delete(invoice.getId());</span>
+<span class="nc" id="L39">	}</span>
+	
+	public List&lt;Invoice&gt; findAllInvoicesByCustomer(Customer customer)
+			throws InvoiceServiceException {
+<span class="nc" id="L43">		checkCustomer(customer);</span>
+		
+<span class="nc" id="L45">		List&lt;Invoice&gt; retVal = new ArrayList&lt;Invoice&gt;();</span>
+		
+<span class="nc" id="L47">		List&lt;Invoice&gt; findAll = invoiceDao.findAll();</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">		for (Invoice invoice : findAll) {</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">			if(invoice.getCustomer().getId()==customer.getId()) {</span>
+<span class="nc" id="L50">				retVal.add(invoice);</span>
+			}
+<span class="nc" id="L52">		}</span>
+		
+<span class="nc" id="L54">		return retVal;</span>
+	}
+	
+	public void checkInvoice(Invoice invoice) throws InvoiceServiceException {
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		if(invoiceDao.findOne(invoice.getId())==null) {</span>
+<span class="nc" id="L59">			throw new InvoiceServiceException(&quot;Invoice does not exist (&quot;+invoice.getId()+&quot;).&quot;);</span>
+		}
+<span class="nc" id="L61">	}</span>
+
+	public void checkProducts(List&lt;Product&gt; items)
+			throws InvoiceServiceException {
+<span class="nc bnc" id="L65" title="All 2 branches missed.">		for(Product p : items) {</span>
+<span class="nc" id="L66">			checkProduct(p);</span>
+<span class="nc" id="L67">		}</span>
+<span class="nc" id="L68">	}</span>
+
+	public void checkProduct(Product p) throws InvoiceServiceException {
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		if(productDao.findOne(p.getId())==null) {</span>
+<span class="nc" id="L72">			throw new InvoiceServiceException(&quot;Product does not exist (&quot;+p.getId()+&quot;).&quot;);</span>
+		}
+<span class="nc" id="L74">	}</span>
+
+	public void checkCustomer(Customer customer)
+			throws InvoiceServiceException {
+<span class="nc bnc" id="L78" title="All 2 branches missed.">		if(customerDao.findOne(customer.getId())==null) {</span>
+<span class="nc" id="L79">			throw new InvoiceServiceException(&quot;Customer does not exist.&quot;);</span>
+		}
+<span class="nc" id="L81">	}</span>
+
+	public InvoiceDao getInvoiceDao() {
+<span class="nc" id="L84">		return invoiceDao;</span>
+	}
+
+	public void setInvoiceDao(InvoiceDao invoiceDao) {
+<span class="nc" id="L88">		this.invoiceDao = invoiceDao;</span>
+<span class="nc" id="L89">	}</span>
+
+	public ProductDao getProductDao() {
+<span class="nc" id="L92">		return productDao;</span>
+	}
+
+	public void setProductDao(ProductDao productDao) {
+<span class="nc" id="L96">		this.productDao = productDao;</span>
+<span class="nc" id="L97">	}</span>
+
+	public CustomerDao getCustomerDao() {
+<span class="nc" id="L100">		return customerDao;</span>
+	}
+
+	public void setCustomerDao(CustomerDao customerDao) {
+<span class="nc" id="L104">		this.customerDao = customerDao;</span>
+<span class="nc" id="L105">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

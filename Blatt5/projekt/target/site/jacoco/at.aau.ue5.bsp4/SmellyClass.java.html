@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SmellyClass.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">se15</a> &gt; <a href="index.source.html" class="el_package">at.aau.ue5.bsp4</a> &gt; <span class="el_source">SmellyClass.java</span></div><h1>SmellyClass.java</h1><pre class="source lang-java linenums">package at.aau.ue5.bsp4;
+
+<span class="nc" id="L3">public class SmellyClass {</span>
+
+    public void erstelleRechnung(Order order) {
+
+        //calculate temporary price
+<span class="nc" id="L8">        Double totalPrice=0.0d;</span>
+<span class="nc bnc" id="L9" title="All 2 branches missed.">        for (Item item : order.getItems()) {</span>
+<span class="nc" id="L10">            totalPrice+=item.getPrice();</span>
+<span class="nc" id="L11">        }</span>
+
+        //check for shipping costs
+<span class="nc bnc" id="L14" title="All 2 branches missed.">        if(totalPrice&lt;=100) {</span>
+<span class="nc" id="L15">            Item item = new Item();</span>
+<span class="nc" id="L16">            item.setId(99l);</span>
+<span class="nc" id="L17">            item.setName(&quot;Porto und Versand&quot;);</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">            if(totalPrice&gt;90) {</span>
+<span class="nc" id="L19">                item.setPrice(totalPrice*0.05);</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">            } else if(totalPrice&gt;50) {</span>
+<span class="nc" id="L21">                item.setPrice(7.5d);</span>
+            } else {
+<span class="nc" id="L23">                item.setPrice(10d);</span>
+            }
+
+<span class="nc" id="L26">            order.getItems().add(item);</span>
+        }
+
+<span class="nc" id="L29">        totalPrice=0.0d;</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        for (Item item : order.getItems()) {</span>
+<span class="nc" id="L31">            totalPrice+=item.getPrice();</span>
+<span class="nc" id="L32">        }</span>
+
+<span class="nc" id="L34">        System.out.println(&quot;Rechnung:&quot;);</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        for (Item item : order.getItems()) {</span>
+<span class="nc" id="L36">            System.out.println(item.getName()+&quot;: &quot;+item.getPrice());</span>
+<span class="nc" id="L37">        }</span>
+<span class="nc" id="L38">        System.out.println(&quot;Total: &quot;+totalPrice);</span>
+<span class="nc" id="L39">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

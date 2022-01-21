@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Invoice.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">se15</a> &gt; <a href="index.source.html" class="el_package">at.aau.ue5.bsp1.entity</a> &gt; <span class="el_source">Invoice.java</span></div><h1>Invoice.java</h1><pre class="source lang-java linenums">package at.aau.ue5.bsp1.entity;
+
+import java.util.List;
+
+public class Invoice {
+
+	private Long id;
+	private Customer customer;
+	private List&lt;Product&gt; items;
+	private Boolean paid;
+
+<span class="nc" id="L12">	public Invoice() {</span>
+<span class="nc" id="L13">	}</span>
+
+	public Invoice(Long id, Customer customer, List&lt;Product&gt; items, Boolean paid) {
+<span class="fc" id="L16">		super();</span>
+<span class="fc" id="L17">		this.id = id;</span>
+<span class="fc" id="L18">		this.customer = customer;</span>
+<span class="fc" id="L19">		this.items = items;</span>
+<span class="fc" id="L20">		this.paid = paid;</span>
+<span class="fc" id="L21">	}</span>
+
+	public Long getId() {
+<span class="fc" id="L24">		return id;</span>
+	}
+
+	public void setId(Long id) {
+<span class="fc" id="L28">		this.id = id;</span>
+<span class="fc" id="L29">	}</span>
+
+	public Customer getCustomer() {
+<span class="nc" id="L32">		return customer;</span>
+	}
+
+	public void setCustomer(Customer customer) {
+<span class="nc" id="L36">		this.customer = customer;</span>
+<span class="nc" id="L37">	}</span>
+
+	public List&lt;Product&gt; getItems() {
+<span class="nc" id="L40">		return items;</span>
+	}
+
+	public void setItems(List&lt;Product&gt; items) {
+<span class="nc" id="L44">		this.items = items;</span>
+<span class="nc" id="L45">	}</span>
+
+	public Boolean getPaid() {
+<span class="nc" id="L48">		return paid;</span>
+	}
+
+	public void setPaid(Boolean paid) {
+<span class="nc" id="L52">		this.paid = paid;</span>
+<span class="nc" id="L53">	}</span>
+
+	@Override
+	public int hashCode() {
+<span class="nc" id="L57">		final int prime = 31;</span>
+<span class="nc" id="L58">		int result = 1;</span>
+<span class="nc" id="L59">		result = prime * result</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">				+ ((customer == null) ? 0 : customer.hashCode());</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">		result = prime * result + ((id == null) ? 0 : id.hashCode());</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		result = prime * result + ((items == null) ? 0 : items.hashCode());</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">		result = prime * result + ((paid == null) ? 0 : paid.hashCode());</span>
+<span class="nc" id="L64">		return result;</span>
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">		if (this == obj)</span>
+<span class="fc" id="L70">			return true;</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		if (obj == null)</span>
+<span class="nc" id="L72">			return false;</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">		if (getClass() != obj.getClass())</span>
+<span class="nc" id="L74">			return false;</span>
+<span class="nc" id="L75">		Invoice other = (Invoice) obj;</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">		if (customer == null) {</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">			if (other.customer != null)</span>
+<span class="nc" id="L78">				return false;</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		} else if (!customer.equals(other.customer))</span>
+<span class="nc" id="L80">			return false;</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">		if (id == null) {</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">			if (other.id != null)</span>
+<span class="nc" id="L83">				return false;</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">		} else if (!id.equals(other.id))</span>
+<span class="nc" id="L85">			return false;</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">		if (items == null) {</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">			if (other.items != null)</span>
+<span class="nc" id="L88">				return false;</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">		} else if (!items.equals(other.items))</span>
+<span class="nc" id="L90">			return false;</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">		if (paid == null) {</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">			if (other.paid != null)</span>
+<span class="nc" id="L93">				return false;</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">		} else if (!paid.equals(other.paid))</span>
+<span class="nc" id="L95">			return false;</span>
+<span class="nc" id="L96">		return true;</span>
+	}
+
+	@Override
+	public String toString() {
+<span class="nc" id="L101">		return &quot;Invoice [id=&quot; + id + &quot;, customer=&quot; + customer + &quot;, items=&quot;</span>
+				+ items + &quot;, paid=&quot; + paid + &quot;]&quot;;
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

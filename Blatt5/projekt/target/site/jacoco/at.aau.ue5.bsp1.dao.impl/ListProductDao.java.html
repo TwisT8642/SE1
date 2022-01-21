@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ListProductDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">se15</a> &gt; <a href="index.source.html" class="el_package">at.aau.ue5.bsp1.dao.impl</a> &gt; <span class="el_source">ListProductDao.java</span></div><h1>ListProductDao.java</h1><pre class="source lang-java linenums">package at.aau.ue5.bsp1.dao.impl;
+
+import java.util.List;
+
+import at.aau.ue5.bsp1.dao.ProductDao;
+import at.aau.ue5.bsp1.entity.Product;
+
+public class ListProductDao extends AbstractListDao&lt;Long, Product&gt; implements
+		ProductDao {
+
+<span class="fc" id="L11">	public ListProductDao() {</span>
+<span class="fc" id="L12">		this.currentId = 1L;</span>
+<span class="fc" id="L13">	}</span>
+
+	public List&lt;Product&gt; findAll() {
+<span class="fc" id="L16">		return this.list;</span>
+	}
+
+	public Product findOne(Long id) {
+<span class="fc bfc" id="L20" title="All 2 branches covered.">		for (Product p : this.list) {</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">			if (p.getId() == id) {</span>
+<span class="fc" id="L22">				return p;</span>
+			}
+<span class="fc" id="L24">		}</span>
+<span class="fc" id="L25">		return null;</span>
+	}
+
+	public Product insert(Product element) {
+<span class="fc" id="L29">		element.setId(currentId++);</span>
+<span class="fc" id="L30">		this.list.add(element);</span>
+<span class="fc" id="L31">		return element;</span>
+	}
+
+	public void delete(Long id) {
+<span class="fc" id="L35">		Product prod = null;</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">		for (Product p : this.list) {</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">			if (p.getId() == id) {</span>
+<span class="fc" id="L38">				prod = p;</span>
+<span class="fc" id="L39">				break;</span>
+			}
+<span class="nc" id="L41">		}</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">		if (prod != null) {</span>
+<span class="fc" id="L43">			this.list.remove(prod);</span>
+		}
+<span class="fc" id="L45">	}</span>
+
+	public Product update(Product element) {
+<span class="fc" id="L48">		Product prod = null;</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">		for (Product c : this.list) {</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">			if (c.getId() == element.getId()) {</span>
+<span class="fc" id="L51">				prod = c;</span>
+<span class="fc" id="L52">				break;</span>
+			}
+<span class="fc" id="L54">		}</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">		if (prod != null) {</span>
+<span class="fc" id="L56">			this.list.remove(prod);</span>
+		}
+<span class="fc" id="L58">		this.list.add(element);</span>
+<span class="fc" id="L59">		return prod;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
