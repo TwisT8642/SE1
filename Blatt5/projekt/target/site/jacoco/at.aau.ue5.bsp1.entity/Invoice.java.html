@@ -89,16 +89,13 @@ public class Invoice {
 <span class="pc bpc" id="L89" title="1 of 2 branches missed.">		} else if (!items.equals(other.items))</span>
 <span class="nc" id="L90">			return false;</span>
 <span class="pc bpc" id="L91" title="1 of 2 branches missed.">		if (paid == null) {</span>
-<span class="nc bnc" id="L92" title="All 2 branches missed.">			if (other.paid != null)</span>
-<span class="nc" id="L93">				return false;</span>
-<span class="pc bpc" id="L94" title="1 of 2 branches missed.">		} else if (!paid.equals(other.paid))</span>
-<span class="nc" id="L95">			return false;</span>
-<span class="fc" id="L96">		return true;</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">			return other.paid == null;</span>
+<span class="fc" id="L93">		} else return paid.equals(other.paid);</span>
 	}
 
 	@Override
 	public String toString() {
-<span class="nc" id="L101">		return &quot;Invoice [id=&quot; + id + &quot;, customer=&quot; + customer + &quot;, items=&quot;</span>
+<span class="nc" id="L98">		return &quot;Invoice [id=&quot; + id + &quot;, customer=&quot; + customer + &quot;, items=&quot;</span>
 				+ items + &quot;, paid=&quot; + paid + &quot;]&quot;;
 	}
 

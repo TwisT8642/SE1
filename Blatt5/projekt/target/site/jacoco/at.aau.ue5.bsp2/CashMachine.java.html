@@ -3,92 +3,92 @@
 public class CashMachine {
 
 	private CashMachineState currentState;
-<span class="nc" id="L6">	private int pinCount = 1;</span>
+<span class="fc" id="L6">	private int pinCount = 1;</span>
 
-<span class="nc" id="L8">	public CashMachine() {</span>
-<span class="nc" id="L9">		currentState = CashMachineState.START;</span>
-<span class="nc" id="L10">	}</span>
+<span class="fc" id="L8">	public CashMachine() {</span>
+<span class="fc" id="L9">		currentState = CashMachineState.START;</span>
+<span class="fc" id="L10">	}</span>
 
 	public void insertCard(String cardNr) {
-<span class="nc bnc" id="L13" title="All 2 branches missed.">		if (currentState != CashMachineState.START) {</span>
-<span class="nc" id="L14">			throw new IllegalStateException();</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">		if (currentState != CashMachineState.START) {</span>
+<span class="fc" id="L14">			throw new IllegalStateException();</span>
 		} else {
-<span class="nc bnc" id="L16" title="All 2 branches missed.">			if (cardNr.endsWith(&quot;42&quot;)) {</span>
-<span class="nc" id="L17">				System.out.println(&quot;Card invalid. Retaining Card.&quot;);</span>
-<span class="nc" id="L18">				currentState = CashMachineState.CARD_RETAINED;</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">			if (cardNr.endsWith(&quot;00&quot;)) {</span>
+<span class="fc" id="L17">				System.out.println(&quot;Card invalid. Retaining Card.&quot;);</span>
+<span class="fc" id="L18">				currentState = CashMachineState.CARD_RETAINED;</span>
 			} else {
-<span class="nc" id="L20">				System.out.println(&quot;Card valid.&quot;);</span>
-<span class="nc" id="L21">				currentState = CashMachineState.CARD_INSERTED;</span>
+<span class="fc" id="L20">				System.out.println(&quot;Card valid.&quot;);</span>
+<span class="fc" id="L21">				currentState = CashMachineState.CARD_INSERTED;</span>
 			}
 		}
-<span class="nc" id="L24">	}</span>
+<span class="fc" id="L24">	}</span>
 
 	public void inputPIN(String pin) {
-<span class="nc bnc" id="L27" title="All 4 branches missed.">		if (currentState == CashMachineState.CARD_INSERTED</span>
+<span class="fc bfc" id="L27" title="All 4 branches covered.">		if (currentState == CashMachineState.CARD_INSERTED</span>
 				|| currentState == CashMachineState.PIN_NOT_OK) {
-<span class="nc bnc" id="L29" title="All 2 branches missed.">			if (pinCount &lt; 3) {</span>
-<span class="nc bnc" id="L30" title="All 2 branches missed.">				if (&quot;1234&quot;.equals(pin)) {</span>
-<span class="nc" id="L31">					pinCount++;</span>
-<span class="nc" id="L32">					currentState = CashMachineState.PIN_OK;</span>
-<span class="nc" id="L33">					System.out.println(&quot;PIN OK.&quot;);</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">			if (pinCount &lt; 5) {</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">				if (&quot;0815&quot;.equals(pin)) {</span>
+<span class="fc" id="L31">					pinCount++;</span>
+<span class="fc" id="L32">					currentState = CashMachineState.PIN_OK;</span>
+<span class="fc" id="L33">					System.out.println(&quot;PIN OK.&quot;);</span>
 				} else {
-<span class="nc" id="L35">					pinCount++;</span>
-<span class="nc" id="L36">					currentState = CashMachineState.PIN_NOT_OK;</span>
-<span class="nc" id="L37">					System.out.println(&quot;PIN NOT OK. Retry.&quot;);</span>
+<span class="fc" id="L35">					pinCount++;</span>
+<span class="fc" id="L36">					currentState = CashMachineState.PIN_NOT_OK;</span>
+<span class="fc" id="L37">					System.out.println(&quot;PIN NOT OK. Retry.&quot;);</span>
 				}
 			} else {
-<span class="nc" id="L40">				currentState = CashMachineState.CARD_RETAINED;</span>
-<span class="nc" id="L41">				System.out.println(&quot;PIN NOT OK. CARD RETAINED&quot;);</span>
+<span class="fc" id="L40">				currentState = CashMachineState.CARD_RETAINED;</span>
+<span class="fc" id="L41">				System.out.println(&quot;PIN NOT OK. CARD RETAINED&quot;);</span>
 			}
 		} else {
-<span class="nc" id="L44">			throw new IllegalStateException();</span>
+<span class="fc" id="L44">			throw new IllegalStateException();</span>
 		}
-<span class="nc" id="L46">	}</span>
+<span class="fc" id="L46">	}</span>
 
 	public void selectAmount(Integer amount) {
-<span class="nc bnc" id="L49" title="All 4 branches missed.">		if (currentState == CashMachineState.PIN_OK</span>
+<span class="pc bpc" id="L49" title="1 of 4 branches missed.">		if (currentState == CashMachineState.PIN_OK</span>
 				|| currentState == CashMachineState.AMOUNT_NOT_VALID) {
-<span class="nc bnc" id="L51" title="All 2 branches missed.">			while (amount &gt;= 100) {</span>
-<span class="nc" id="L52">				amount -= 100;</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">			while (amount &gt;= 100) {</span>
+<span class="fc" id="L52">				amount -= 100;</span>
 			}
-<span class="nc bnc" id="L54" title="All 2 branches missed.">			while (amount &gt;= 50) {</span>
-<span class="nc" id="L55">				amount -= 50;</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">			while (amount &gt;= 50) {</span>
+<span class="fc" id="L55">				amount -= 50;</span>
 			}
-<span class="nc bnc" id="L57" title="All 2 branches missed.">			while (amount &gt;= 10) {</span>
-<span class="nc" id="L58">				amount -= 10;</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">			while (amount &gt;= 10) {</span>
+<span class="fc" id="L58">				amount -= 10;</span>
 			}
-<span class="nc bnc" id="L60" title="All 2 branches missed.">			if (amount != 0) {</span>
-<span class="nc" id="L61">				System.out.println(&quot;Invalid amount. Choose another.&quot;);</span>
-<span class="nc" id="L62">				currentState = CashMachineState.AMOUNT_NOT_VALID;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">			if (amount != 0) {</span>
+<span class="fc" id="L61">				System.out.println(&quot;Invalid amount. Choose another.&quot;);</span>
+<span class="fc" id="L62">				currentState = CashMachineState.AMOUNT_NOT_VALID;</span>
 			} else {
-<span class="nc" id="L64">				System.out.println(&quot;Valid amount. Take the money.&quot;);</span>
-<span class="nc" id="L65">				currentState = CashMachineState.AMOUNT_VALID;</span>
+<span class="fc" id="L64">				System.out.println(&quot;Valid amount. Take the money.&quot;);</span>
+<span class="fc" id="L65">				currentState = CashMachineState.AMOUNT_VALID;</span>
 			}
 		} else {
-<span class="nc" id="L68">			throw new IllegalStateException();</span>
+<span class="fc" id="L68">			throw new IllegalStateException();</span>
 		}
-<span class="nc" id="L70">	}</span>
+<span class="fc" id="L70">	}</span>
 
 	public void takeCash() {
-<span class="nc bnc" id="L73" title="All 2 branches missed.">		if (currentState == CashMachineState.AMOUNT_VALID) {</span>
-<span class="nc" id="L74">			System.out.println(&quot;Cash given.&quot;);</span>
-<span class="nc" id="L75">			currentState = CashMachineState.CASH_GIVEN;</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">		if (currentState == CashMachineState.AMOUNT_VALID) {</span>
+<span class="fc" id="L74">			System.out.println(&quot;Cash given.&quot;);</span>
+<span class="fc" id="L75">			currentState = CashMachineState.CASH_GIVEN;</span>
 		} else {
-<span class="nc" id="L77">			throw new IllegalStateException();</span>
+<span class="fc" id="L77">			throw new IllegalStateException();</span>
 		}
-<span class="nc" id="L79">	}</span>
+<span class="fc" id="L79">	}</span>
 
 	public void removeCard() {
-<span class="nc bnc" id="L82" title="All 2 branches missed.">		if (currentState == CashMachineState.CASH_GIVEN) {</span>
-<span class="nc" id="L83">			System.out.println(&quot;Card taken.&quot;);</span>
-<span class="nc" id="L84">			currentState = CashMachineState.CARD_TAKEN;</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">		if (currentState == CashMachineState.CASH_GIVEN) {</span>
+<span class="fc" id="L83">			System.out.println(&quot;Card taken.&quot;);</span>
+<span class="fc" id="L84">			currentState = CashMachineState.CARD_TAKEN;</span>
 		} else {
-<span class="nc" id="L86">			throw new IllegalStateException();</span>
+<span class="fc" id="L86">			throw new IllegalStateException();</span>
 		}
-<span class="nc" id="L88">	}</span>
+<span class="fc" id="L88">	}</span>
 
 	public CashMachineState getCurrentState() {
-<span class="nc" id="L91">		return currentState;</span>
+<span class="fc" id="L91">		return currentState;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

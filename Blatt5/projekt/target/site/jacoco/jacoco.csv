@@ -12,8 +12,8 @@ se15,at.aau.ue5.bsp1.dao.impl,ListProductDao,1,117,1,15,1,30,1,13,0,6
 se15,at.aau.ue5.bsp1.dao.impl,AbstractListDao,0,8,0,0,0,2,0,1,0,1
 se15,at.aau.ue5.bsp1.dao.impl,ListInvoiceDao,2,116,4,12,2,29,4,10,0,6
 se15,at.aau.ue5.bsp1.dao.impl,ListCustomerDao,2,143,4,16,2,35,4,13,0,7
-se15,at.aau.ue5.bsp1.entity,Customer,131,27,29,1,35,11,21,5,6,5
-se15,at.aau.ue5.bsp1.entity,Product,122,36,27,3,33,13,20,6,6,5
-se15,at.aau.ue5.bsp1.entity,Invoice,106,93,26,12,25,32,22,10,4,9
-se15,at.aau.ue5.bsp2,CashMachine,187,0,28,0,50,0,21,0,7,0
-se15,at.aau.ue5.bsp2,CashMachineState,57,0,0,0,2,0,1,0,1,0
+se15,at.aau.ue5.bsp1.entity,Customer,129,27,27,1,32,11,20,5,6,5
+se15,at.aau.ue5.bsp1.entity,Product,132,24,27,1,33,10,21,4,7,4
+se15,at.aau.ue5.bsp1.entity,Invoice,106,91,25,11,23,31,21,10,4,9
+se15,at.aau.ue5.bsp2,CashMachine,0,187,1,27,0,50,1,20,0,7
+se15,at.aau.ue5.bsp2,CashMachineState,0,57,0,0,0,2,0,1,0,1
