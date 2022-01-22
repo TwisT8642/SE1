@@ -11,7 +11,7 @@ import at.aau.ue5.bsp1.entity.Invoice;
 import at.aau.ue5.bsp1.entity.Product;
 import at.aau.ue5.bsp1.service.exception.InvoiceServiceException;
 
-<span class="nc" id="L14">public class InvoiceServiceImpl implements InvoiceService {</span>
+<span class="fc" id="L14">public class InvoiceServiceImpl implements InvoiceService {</span>
 
 	private InvoiceDao invoiceDao;
 	private ProductDao productDao;
@@ -19,89 +19,89 @@ import at.aau.ue5.bsp1.service.exception.InvoiceServiceException;
 
 	public Invoice createInvoice(List&lt;Product&gt; items, Customer customer)
 			throws InvoiceServiceException {
-<span class="nc" id="L22">		checkCustomer(customer);</span>
-<span class="nc" id="L23">		checkProducts(items);</span>
+<span class="fc" id="L22">		checkCustomer(customer);</span>
+<span class="fc" id="L23">		checkProducts(items);</span>
 		
-<span class="nc" id="L25">		Invoice newInvoice = new Invoice();</span>
-<span class="nc" id="L26">		newInvoice.setCustomer(customer);</span>
-<span class="nc" id="L27">		newInvoice.setItems(items);</span>
-<span class="nc" id="L28">		newInvoice.setPaid(false);</span>
+<span class="fc" id="L25">		Invoice newInvoice = new Invoice();</span>
+<span class="fc" id="L26">		newInvoice.setCustomer(customer);</span>
+<span class="fc" id="L27">		newInvoice.setItems(items);</span>
+<span class="fc" id="L28">		newInvoice.setPaid(false);</span>
 		
-<span class="nc" id="L30">		newInvoice=invoiceDao.insert(newInvoice);</span>
+<span class="fc" id="L30">		newInvoice=invoiceDao.insert(newInvoice);</span>
 		
-<span class="nc" id="L32">		return newInvoice;</span>
+<span class="fc" id="L32">		return newInvoice;</span>
 	}
 
 	public void deleteInvoice(Invoice invoice)
 			throws InvoiceServiceException {
-<span class="nc" id="L37">		checkInvoice(invoice);</span>
-<span class="nc" id="L38">		invoiceDao.delete(invoice.getId());</span>
-<span class="nc" id="L39">	}</span>
+<span class="fc" id="L37">		checkInvoice(invoice);</span>
+<span class="fc" id="L38">		invoiceDao.delete(invoice.getId());</span>
+<span class="fc" id="L39">	}</span>
 	
 	public List&lt;Invoice&gt; findAllInvoicesByCustomer(Customer customer)
 			throws InvoiceServiceException {
-<span class="nc" id="L43">		checkCustomer(customer);</span>
+<span class="fc" id="L43">		checkCustomer(customer);</span>
 		
-<span class="nc" id="L45">		List&lt;Invoice&gt; retVal = new ArrayList&lt;Invoice&gt;();</span>
+<span class="fc" id="L45">		List&lt;Invoice&gt; retVal = new ArrayList&lt;Invoice&gt;();</span>
 		
-<span class="nc" id="L47">		List&lt;Invoice&gt; findAll = invoiceDao.findAll();</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">		for (Invoice invoice : findAll) {</span>
-<span class="nc bnc" id="L49" title="All 2 branches missed.">			if(invoice.getCustomer().getId()==customer.getId()) {</span>
-<span class="nc" id="L50">				retVal.add(invoice);</span>
+<span class="fc" id="L47">		List&lt;Invoice&gt; findAll = invoiceDao.findAll();</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">		for (Invoice invoice : findAll) {</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">			if(invoice.getCustomer().getId()==customer.getId()) {</span>
+<span class="fc" id="L50">				retVal.add(invoice);</span>
 			}
-<span class="nc" id="L52">		}</span>
+<span class="fc" id="L52">		}</span>
 		
-<span class="nc" id="L54">		return retVal;</span>
+<span class="fc" id="L54">		return retVal;</span>
 	}
 	
 	public void checkInvoice(Invoice invoice) throws InvoiceServiceException {
-<span class="nc bnc" id="L58" title="All 2 branches missed.">		if(invoiceDao.findOne(invoice.getId())==null) {</span>
-<span class="nc" id="L59">			throw new InvoiceServiceException(&quot;Invoice does not exist (&quot;+invoice.getId()+&quot;).&quot;);</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">		if(invoiceDao.findOne(invoice.getId())==null) {</span>
+<span class="fc" id="L59">			throw new InvoiceServiceException(&quot;Invoice does not exist (&quot;+invoice.getId()+&quot;).&quot;);</span>
 		}
-<span class="nc" id="L61">	}</span>
+<span class="fc" id="L61">	}</span>
 
 	public void checkProducts(List&lt;Product&gt; items)
 			throws InvoiceServiceException {
-<span class="nc bnc" id="L65" title="All 2 branches missed.">		for(Product p : items) {</span>
-<span class="nc" id="L66">			checkProduct(p);</span>
-<span class="nc" id="L67">		}</span>
-<span class="nc" id="L68">	}</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">		for(Product p : items) {</span>
+<span class="fc" id="L66">			checkProduct(p);</span>
+<span class="fc" id="L67">		}</span>
+<span class="fc" id="L68">	}</span>
 
 	public void checkProduct(Product p) throws InvoiceServiceException {
-<span class="nc bnc" id="L71" title="All 2 branches missed.">		if(productDao.findOne(p.getId())==null) {</span>
-<span class="nc" id="L72">			throw new InvoiceServiceException(&quot;Product does not exist (&quot;+p.getId()+&quot;).&quot;);</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">		if(productDao.findOne(p.getId())==null) {</span>
+<span class="fc" id="L72">			throw new InvoiceServiceException(&quot;Product does not exist (&quot;+p.getId()+&quot;).&quot;);</span>
 		}
-<span class="nc" id="L74">	}</span>
+<span class="fc" id="L74">	}</span>
 
 	public void checkCustomer(Customer customer)
 			throws InvoiceServiceException {
-<span class="nc bnc" id="L78" title="All 2 branches missed.">		if(customerDao.findOne(customer.getId())==null) {</span>
-<span class="nc" id="L79">			throw new InvoiceServiceException(&quot;Customer does not exist.&quot;);</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">		if(customerDao.findOne(customer.getId())==null) {</span>
+<span class="fc" id="L79">			throw new InvoiceServiceException(&quot;Customer does not exist.&quot;);</span>
 		}
-<span class="nc" id="L81">	}</span>
+<span class="fc" id="L81">	}</span>
 
 	public InvoiceDao getInvoiceDao() {
-<span class="nc" id="L84">		return invoiceDao;</span>
+<span class="fc" id="L84">		return invoiceDao;</span>
 	}
 
 	public void setInvoiceDao(InvoiceDao invoiceDao) {
-<span class="nc" id="L88">		this.invoiceDao = invoiceDao;</span>
-<span class="nc" id="L89">	}</span>
+<span class="fc" id="L88">		this.invoiceDao = invoiceDao;</span>
+<span class="fc" id="L89">	}</span>
 
 	public ProductDao getProductDao() {
-<span class="nc" id="L92">		return productDao;</span>
+<span class="fc" id="L92">		return productDao;</span>
 	}
 
 	public void setProductDao(ProductDao productDao) {
-<span class="nc" id="L96">		this.productDao = productDao;</span>
-<span class="nc" id="L97">	}</span>
+<span class="fc" id="L96">		this.productDao = productDao;</span>
+<span class="fc" id="L97">	}</span>
 
 	public CustomerDao getCustomerDao() {
-<span class="nc" id="L100">		return customerDao;</span>
+<span class="fc" id="L100">		return customerDao;</span>
 	}
 
 	public void setCustomerDao(CustomerDao customerDao) {
-<span class="nc" id="L104">		this.customerDao = customerDao;</span>
-<span class="nc" id="L105">	}</span>
+<span class="fc" id="L104">		this.customerDao = customerDao;</span>
+<span class="fc" id="L105">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
