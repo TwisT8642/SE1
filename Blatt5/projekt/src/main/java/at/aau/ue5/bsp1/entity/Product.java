@@ -69,11 +69,8 @@ public class Product {
 		} else if (!name.equals(other.name))
 			return false;
 		if (price == null) {
-			if (other.price != null)
-				return false;
-		} else if (!price.equals(other.price))
-			return false;
-		return true;
+			return other.price == null;
+		} else return price.equals(other.price);
 	}
 
 	@Override

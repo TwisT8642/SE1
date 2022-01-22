@@ -89,11 +89,8 @@ public class Invoice {
 		} else if (!items.equals(other.items))
 			return false;
 		if (paid == null) {
-			if (other.paid != null)
-				return false;
-		} else if (!paid.equals(other.paid))
-			return false;
-		return true;
+			return other.paid == null;
+		} else return paid.equals(other.paid);
 	}
 
 	@Override

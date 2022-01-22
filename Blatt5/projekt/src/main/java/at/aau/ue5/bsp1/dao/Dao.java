@@ -4,9 +4,9 @@ import java.util.List;
 
 
 public interface Dao<S,T> {
-	public T findOne(S id);
-	public List<T> findAll();
-	public T insert(T element);
-	public void delete(S id);
-	public T update(T element);
+	T findOne(S id);
+	List<T> findAll();
+	T insert(T element);
+	void delete(S id);
+	T update(T element);
 }

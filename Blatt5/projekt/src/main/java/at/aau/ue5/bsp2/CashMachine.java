@@ -13,7 +13,7 @@ public class CashMachine {
 		if (currentState != CashMachineState.START) {
 			throw new IllegalStateException();
 		} else {
-			if (cardNr.endsWith("42")) {
+			if (cardNr.endsWith("00")) {
 				System.out.println("Card invalid. Retaining Card.");
 				currentState = CashMachineState.CARD_RETAINED;
 			} else {
@@ -26,8 +26,8 @@ public class CashMachine {
 	public void inputPIN(String pin) {
 		if (currentState == CashMachineState.CARD_INSERTED
 				|| currentState == CashMachineState.PIN_NOT_OK) {
-			if (pinCount < 3) {
-				if ("1234".equals(pin)) {
+			if (pinCount < 5) {
+				if ("0815".equals(pin)) {
 					pinCount++;
 					currentState = CashMachineState.PIN_OK;
 					System.out.println("PIN OK.");
