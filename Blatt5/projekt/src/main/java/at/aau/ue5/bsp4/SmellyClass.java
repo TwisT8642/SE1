@@ -23,6 +23,7 @@ public class SmellyClass {
                 item.setPrice(10d);
             }
 
+
             order.getItems().add(item);
         }
 
