@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: at.aau.ue5.bsp2.CashMachineRandomTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in at.aau.ue5.bsp2.CashMachineRandomTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in at.aau.ue5.bsp2.CashMachineRandomTest

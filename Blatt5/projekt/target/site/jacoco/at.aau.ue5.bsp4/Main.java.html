@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">se15</a> &gt; <a href="index.source.html" class="el_package">at.aau.ue5.bsp4</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package at.aau.ue5.bsp4;
+
+import java.util.ArrayList;
+
+<span class="nc" id="L5">public class Main {</span>
+    public static void main(String[] args) {
+
+<span class="nc" id="L8">        SmellyClassRefactored scr = new SmellyClassRefactored();</span>
+<span class="nc" id="L9">        SmellyClass sc = new SmellyClass();</span>
+
+<span class="nc" id="L11">        Customer customer = new Customer();</span>
+<span class="nc" id="L12">        customer.setId(1L);</span>
+<span class="nc" id="L13">        customer.setVorname(&quot;Stefan&quot;);</span>
+<span class="nc" id="L14">        customer.setNachname(&quot;Haarbringer&quot;);</span>
+
+<span class="nc" id="L16">        Item item1 = new Item();</span>
+<span class="nc" id="L17">        Item item2 = new Item();</span>
+<span class="nc" id="L18">        Item item3 = new Item();</span>
+
+<span class="nc" id="L20">        item1.setId(1L);</span>
+<span class="nc" id="L21">        item1.setPrice(15.0d);</span>
+<span class="nc" id="L22">        item1.setName(&quot;Wein&quot;);</span>
+
+<span class="nc" id="L24">        item2.setId(2L);</span>
+<span class="nc" id="L25">        item2.setPrice(20.0d);</span>
+<span class="nc" id="L26">        item2.setName(&quot;Wodka&quot;);</span>
+
+<span class="nc" id="L28">        item3.setId(1L);</span>
+<span class="nc" id="L29">        item3.setPrice(25.0d);</span>
+<span class="nc" id="L30">        item3.setName(&quot;Champagner&quot;);</span>
+
+<span class="nc" id="L32">        ArrayList&lt;Item&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L33">        list.add(item1);</span>
+<span class="nc" id="L34">        list.add(item2);</span>
+<span class="nc" id="L35">        list.add(item3);</span>
+
+<span class="nc" id="L37">        ArrayList&lt;Item&gt; list2 = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L38">        list2.add(item1);</span>
+<span class="nc" id="L39">        list2.add(item2);</span>
+<span class="nc" id="L40">        list2.add(item3);</span>
+
+<span class="nc" id="L42">        Order order1 = new Order();</span>
+<span class="nc" id="L43">        order1.setId(1L);</span>
+<span class="nc" id="L44">        order1.setCustomer(customer);</span>
+<span class="nc" id="L45">        order1.setItems(list);</span>
+
+<span class="nc" id="L47">        Order order2 = new Order();</span>
+<span class="nc" id="L48">        order2.setId(1L);</span>
+<span class="nc" id="L49">        order2.setCustomer(customer);</span>
+<span class="nc" id="L50">        order2.setItems(list2);</span>
+
+<span class="nc" id="L52">        System.out.println(&quot;Bestellung 1 (SmellyClass)&quot;);</span>
+<span class="nc" id="L53">        sc.erstelleRechnung(order1);</span>
+<span class="nc" id="L54">        System.out.println(&quot;---------------------------------------&quot;);</span>
+<span class="nc" id="L55">        System.out.println(&quot;Bestellung 2 (SmellyClassRefactored)&quot;);</span>
+<span class="nc" id="L56">        scr.erstelleRechnung(order2);</span>
+
+
+<span class="nc" id="L59">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -23,19 +23,20 @@
 <span class="nc" id="L23">                item.setPrice(10d);</span>
             }
 
-<span class="nc" id="L26">            order.getItems().add(item);</span>
+
+<span class="nc" id="L27">            order.getItems().add(item);</span>
         }
 
-<span class="nc" id="L29">        totalPrice=0.0d;</span>
-<span class="nc bnc" id="L30" title="All 2 branches missed.">        for (Item item : order.getItems()) {</span>
-<span class="nc" id="L31">            totalPrice+=item.getPrice();</span>
-<span class="nc" id="L32">        }</span>
+<span class="nc" id="L30">        totalPrice=0.0d;</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        for (Item item : order.getItems()) {</span>
+<span class="nc" id="L32">            totalPrice+=item.getPrice();</span>
+<span class="nc" id="L33">        }</span>
 
-<span class="nc" id="L34">        System.out.println(&quot;Rechnung:&quot;);</span>
-<span class="nc bnc" id="L35" title="All 2 branches missed.">        for (Item item : order.getItems()) {</span>
-<span class="nc" id="L36">            System.out.println(item.getName()+&quot;: &quot;+item.getPrice());</span>
-<span class="nc" id="L37">        }</span>
-<span class="nc" id="L38">        System.out.println(&quot;Total: &quot;+totalPrice);</span>
-<span class="nc" id="L39">    }</span>
+<span class="nc" id="L35">        System.out.println(&quot;Rechnung:&quot;);</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        for (Item item : order.getItems()) {</span>
+<span class="nc" id="L37">            System.out.println(item.getName()+&quot;: &quot;+item.getPrice());</span>
+<span class="nc" id="L38">        }</span>
+<span class="nc" id="L39">        System.out.println(&quot;Total: &quot;+totalPrice);</span>
+<span class="nc" id="L40">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

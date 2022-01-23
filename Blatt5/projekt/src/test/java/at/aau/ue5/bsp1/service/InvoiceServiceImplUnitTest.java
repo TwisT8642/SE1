@@ -19,40 +19,5 @@ import javax.inject.Inject;
 import java.util.ArrayList;
 
 public class InvoiceServiceImplUnitTest {
-/*
-    @Mock
-    private ListInvoiceDao listInvoiceDao;
 
-    @Mock
-    private ListProductDao listProductDao;
-
-    @Mock
-    private ListCustomerDao listCustomerDao;
-
-    @InjectMocks
-    private InvoiceServiceImpl a;
-
-    private Customer b;
-    private Product c;
-    private Invoice d;
-    private ArrayList<Product> e;
-    private ArrayList<Invoice> f;
-
-    @BeforeEach
-    public void setup(){
-        MockitoAnnotations.openMocks(this);
-        b = new Customer( 1L,"Stefan","Domplatz 15");
-        c = new Product((long) 1,"Apfel",0.5);
-        e.add(c);
-        d = new Invoice(1L, b,e, false);
-
-    }
-
-
-
-    @Test
-    public void test(){
-
-    }
-    */
 }
