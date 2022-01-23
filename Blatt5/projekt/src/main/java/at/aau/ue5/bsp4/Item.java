@@ -5,6 +5,13 @@ public class Item {
     private Double price;
     private String name;
 
+    //Hinzufügen eines Konstruktors
+    public Item(Long id, Double price, String name) {
+        this.id = id;
+        this.price = price;
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }

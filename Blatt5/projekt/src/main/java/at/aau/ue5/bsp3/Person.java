@@ -14,24 +14,12 @@ public abstract class Person {
         return vorname;
     }
 
-    public void setVorname(String vorname) {
-        this.vorname = vorname;
-    }
-
     public String getNachname() {
         return nachname;
     }
 
-    public void setNachname(String nachname) {
-        this.nachname = nachname;
-    }
-
     public Integer getAlter() {
         return alter;
-    }
-
-    public void setAlter(Integer alter) {
-        this.alter = alter;
     }
 
     public abstract String getJobBeschreibung();

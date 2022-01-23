@@ -12,10 +12,6 @@ public class Architekt extends Person {
         return feld;
     }
 
-    public void setFeld(Feld feld) {
-        this.feld = feld;
-    }
-
     @Override
     public String getJobBeschreibung() {
         return "Designed die Architektur des Projekts";

@@ -16,24 +16,12 @@ public class Entwickler extends Person {
         return bevorzugteProgrammierSprache;
     }
 
-    public void setBevorzugteProgrammierSprache(String bevorzugteProgrammierSprache) {
-        this.bevorzugteProgrammierSprache = bevorzugteProgrammierSprache;
-    }
-
     public Ide getIde() {
         return ide;
     }
 
-    public void setIde(Ide ide) {
-        this.ide = ide;
-    }
-
     public boolean isDatenbanken() {
         return datenbanken;
-    }
-
-    public void setDatenbanken(boolean datenbanken) {
-        this.datenbanken = datenbanken;
     }
 
     @Override

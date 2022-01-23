@@ -12,10 +12,6 @@ public class Tester extends Person {
         return bevorzugtesTestFramework;
     }
 
-    public void setBevorzugtesTestFramework(String bevorzugtesTestFramework) {
-        this.bevorzugtesTestFramework = bevorzugtesTestFramework;
-    }
-
     @Override
     public String getJobBeschreibung() {
         return "Testet Code.";
