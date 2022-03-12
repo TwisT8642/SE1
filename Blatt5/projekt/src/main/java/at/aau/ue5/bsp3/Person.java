@@ -2,8 +2,8 @@
 package at.aau.ue5.bsp3;
 
 public abstract class Person {
-    public String vorname,nachname;
-    public Integer alter;
+    private String vorname,nachname;
+    private Integer alter;
 
     public Person(String vorname, String nachname, Integer alter) {
         this.vorname = vorname;
