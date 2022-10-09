@@ -15,6 +15,7 @@ public class Einstiegsbeispiel {
         this.b = b;
     }
 
+//hallo
     public int[] getA() {
         return a;
     }
